@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ==========================================================================
+   Andrew Sañosa — 90s Cinematic Retro Design System
+   - Deep black with green/blue tint
+   - Off-white text
+   - Accents: warm orange, muted red, soft cyan
+   - Subtle grain + scanlines (very light)
+   All colors in HSL.
+   ========================================================================== */
+
+:root {
+  /* Light fallback (we default to dark, but keep tokens valid) */
+  --background: hsl(40 30% 96%);
+  --foreground: hsl(220 15% 12%);
+  --card: hsl(40 30% 96%);
+  --card-foreground: hsl(220 15% 12%);
+  --popover: hsl(40 30% 96%);
+  --popover-foreground: hsl(220 15% 12%);
+  --primary: hsl(20 85% 55%);              /* warm orange */
+  --primary-foreground: hsl(220 25% 8%);
+  --secondary: hsl(40 20% 90%);
+  --secondary-foreground: hsl(220 15% 12%);
+  --muted: hsl(40 15% 88%);
+  --muted-foreground: hsl(220 8% 38%);
+  --accent: hsl(190 60% 55%);              /* soft cyan */
+  --accent-foreground: hsl(220 25% 8%);
+  --destructive: hsl(2 70% 50%);           /* muted red */
+  --destructive-foreground: hsl(40 30% 96%);
+  --border: hsl(220 10% 80%);
+  --input: hsl(220 10% 80%);
+  --ring: hsl(20 85% 55%);
+  --radius: 0.25rem;
+
+  /* Brand accents */
+  --retro-orange: hsl(20 85% 55%);
+  --retro-red: hsl(2 65% 48%);
+  --retro-cyan: hsl(188 60% 58%);
+  --retro-cream: hsl(40 30% 92%);
+
+  /* Sidebar (kept for shadcn compatibility) */
+  --sidebar-background: hsl(220 25% 6%);
+  --sidebar-foreground: hsl(40 25% 88%);
+  --sidebar-primary: hsl(20 85% 55%);
+  --sidebar-primary-foreground: hsl(220 25% 8%);
+  --sidebar-accent: hsl(220 20% 12%);
+  --sidebar-accent-foreground: hsl(40 25% 88%);
+  --sidebar-border: hsl(220 15% 18%);
+  --sidebar-ring: hsl(20 85% 55%);
+}
+
+.dark,
+:root {
+  /* Default to the cinematic dark theme */
+  --background: hsl(195 22% 6%);           /* deep black w/ slight blue-green tint */
+  --foreground: hsl(40 25% 90%);           /* off-white */
+  --card: hsl(195 20% 9%);
+  --card-foreground: hsl(40 25% 90%);
+  --popover: hsl(195 22% 7%);
+  --popover-foreground: hsl(40 25% 90%);
+  --primary: hsl(20 85% 58%);              /* warm orange */
+  --primary-foreground: hsl(195 25% 6%);
+  --secondary: hsl(195 18% 13%);
+  --secondary-foreground: hsl(40 25% 90%);
+  --muted: hsl(195 15% 14%);
+  --muted-foreground: hsl(40 12% 62%);
+  --accent: hsl(188 60% 58%);              /* soft cyan accent */
+  --accent-foreground: hsl(195 25% 6%);
+  --destructive: hsl(2 65% 48%);           /* muted red */
+  --destructive-foreground: hsl(40 25% 90%);
+  --border: hsl(195 15% 18%);
+  --input: hsl(195 15% 16%);
+  --ring: hsl(20 85% 58%);
+
+  --retro-orange: hsl(20 85% 58%);
+  --retro-red: hsl(2 65% 50%);
+  --retro-cyan: hsl(188 60% 58%);
+  --retro-cream: hsl(40 25% 90%);
+
+  --sidebar-background: hsl(195 22% 6%);
+  --sidebar-foreground: hsl(40 25% 88%);
+  --sidebar-primary: hsl(20 85% 58%);
+  --sidebar-primary-foreground: hsl(195 25% 6%);
+  --sidebar-accent: hsl(195 18% 13%);
+  --sidebar-accent-foreground: hsl(40 25% 88%);
+  --sidebar-border: hsl(195 15% 18%);
+  --sidebar-ring: hsl(20 85% 58%);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-retro-orange: var(--retro-orange);
+  --color-retro-red: var(--retro-red);
+  --color-retro-cyan: var(--retro-cyan);
+  --color-retro-cream: var(--retro-cream);
+
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-display: "Oswald", "Bebas Neue", "Impact", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-grain: grain 8s steps(10) infinite;
+  --animate-flicker: flicker 6s ease-in-out infinite;
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to   { height: var(--radix-accordion-content-height); }
+}
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to   { height: 0; }
+}
+
+/* Subtle film-grain drift */
+@keyframes grain {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-2%, -1%); }
+  20%  { transform: translate(1%, 2%); }
+  30%  { transform: translate(-1%, 3%); }
+  40%  { transform: translate(3%, -2%); }
+  50%  { transform: translate(-2%, 1%); }
+  60%  { transform: translate(2%, 2%); }
+  70%  { transform: translate(-1%, -2%); }
+  80%  { transform: translate(2%, 1%); }
+  90%  { transform: translate(-3%, 2%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.06; }
+  45%      { opacity: 0.09; }
+  50%      { opacity: 0.04; }
+  55%      { opacity: 0.10; }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Subtle film grain — apply to any container */
+  .grain-overlay {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .grain-overlay::after {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    pointer-events: none;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-size: 160px 160px;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    animation: var(--animate-grain);
+  }
+
+  /* Very light scanlines */
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      hsl(0 0% 0% / 0) 0px,
+      hsl(0 0% 0% / 0) 2px,
+      hsl(0 0% 0% / 0.06) 3px,
+      hsl(0 0% 0% / 0) 4px
+    );
+    z-index: 2;
+    animation: var(--animate-flicker);
+  }
+
+  .text-retro-orange { color: var(--retro-orange); }
+  .text-retro-red    { color: var(--retro-red); }
+  .text-retro-cyan   { color: var(--retro-cyan); }
+  .bg-retro-orange   { background-color: var(--retro-orange); }
+  .bg-retro-red      { background-color: var(--retro-red); }
+  .bg-retro-cyan     { background-color: var(--retro-cyan); }
+  .border-retro-orange { border-color: var(--retro-orange); }
+
+  /* Headline emphasis style */
+  .headline {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* Tag chip used on project cards */
+  .retro-chip {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid currentColor;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+}
